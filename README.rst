@@ -81,3 +81,14 @@ This will generate a new migration script. Then run ::
 To apply the migration.
 
 For a full migration command reference, run ``flask db --help``.
+
+Exercice DevOps
+---------------
+
+How to build docker image
+
+How to run it on a Linux Server
+
+How to pull docker image built with CI 
+
+How to run the app with https
