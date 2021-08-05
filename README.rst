@@ -85,9 +85,11 @@ For a full migration command reference, run ``flask db --help``.
 Exercice DevOps
 ---------------
 
-How to build docker image
+How to build docker image ::
+    docker build --tag IMAGE_NAME DOCKERFILE_PATH
 
-How to run it on a Linux Server
+How to run it on a Linux Server ::
+    docker run -p 8443:5000 IMAGE_NAME
 
 How to pull docker image built with CI 
 

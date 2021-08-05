@@ -1,0 +1,31 @@
+version: "3"
+services:
+    app:
+        container_name: python
+        image: exercice/python
+        build:
+            context: ./
+            dockerfile: Dockerfile
+        environment: 
+            FLASK_APP: autoapp.py
+            #DATABASE_URL: postgresql://root:password@db/bookstore
+            FLASK_DEBUG: 1
+        ports:
+            - "5000:5000"
+        # depends_on:
+        #     - db
+
+    # db:
+    #     container_name: db
+    #     image: postgres:latest
+    #     environment:
+    #         POSTGRES_PASSWORD: password
+    #         POSTGRES_DB: bookstore
+    #         POSTGRES_USER: root
+    #     ports:
+    #         - 5432:5432
+    #     volumes:
+    #         - db_data:/var/lib/postgresql/data
+
+volumes:
+    db_data:
