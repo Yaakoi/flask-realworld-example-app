@@ -4,6 +4,7 @@ FROM centos:8
 
 WORKDIR /app
 COPY . ./
+RUN mkdir /var/my-data
 RUN dnf update -y && \
     dnf install -y \
     python3 \
@@ -14,7 +15,10 @@ RUN dnf update -y && \
     pip3 install --upgrade setuptools \
     -r requirements/dev.txt 
     
-ENV FLASK_APP=autoapp.py
-ENV FLASK_DEBUG=1
+ARG FLASK_APP
+ARG FLASK_DEBUG
+
+ENV FLASK_APP $FLASK_APP
+ENV FLASK_DEBUG $FLASK_DEBUG
 EXPOSE 5000
 CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
