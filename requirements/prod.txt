@@ -16,10 +16,3 @@ psycopg2
 Flask-Migrate
 gunicorn
 Flask-Cors
-
-
-# Tests dependancies
-pytest
-WebTest
-factory-boy
-Faker
