@@ -38,6 +38,6 @@ jobs:
           push: true
           tags: yakoi/python:latest
           build-args: |
-            FLASK_APP: autoapp.py
-            DATABASE_URL: postgresql://root:password@db/pythonapp
-            FLASK_DEBUG: 0
+            FLASK_APP=autoapp.py
+            DATABASE_URL=postgresql://root:password@db/pythonapp
+            FLASK_DEBUG=0
