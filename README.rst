@@ -86,11 +86,31 @@ Exercice DevOps
 ---------------
 
 How to build docker image ::
+
     docker build --tag IMAGE_NAME DOCKERFILE_PATH
 
-How to run it on a Linux Server ::
+How to run a container with this image ::
+
     docker run -p 8443:5000 IMAGE_NAME
 
 How to pull docker image built with CI 
+The image is pushed on a public Docker Hub repository : yakoi/python ::
 
-How to run the app with https
+    docker pull yakoi/python
+
+How to generate a certificate with openssl :
+1- Generate server private key and CSR ::
+
+    openssl req -newkey rsa:4096 -keyout server-key.pem -out server-req.pem
+
+2- Sign server private key with CA key to get back the signed certificate ::
+    
+    openssl x509 -req -in server-req.pem -days 60 -CA ca-cert.pem -CAkey ca-key.pem -CAcreateserial -out server-cert.pem -extfile server-ext.cnf
+ 
+Optional : create a server-ext.cnf file to add DNS ::
+
+    subjectAltName=DNS:flask-app.devops.local
+    
+How to run the app with https ::
+    
+    flask run --cert=cert.pem --key=key.pem
